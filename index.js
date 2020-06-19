@@ -21,7 +21,11 @@ const writeSymbolWithVirtualKeyboard = () => {
         e.addEventListener("click", (event) => {
             let target = event.target;
             console.log(target)
-            if(target.classList.contains('Tab')){
+            if(target.classList.contains('Ctrl') || target.classList.contains('Meta') || target.classList.contains('Alt') || target.classList.contains('Shift') || target.classList.contains('Enter')){
+                
+            }else if(target.classList.contains('Backspace')){
+                textarea.value = textarea.value.substr(0, textarea.value.length - 1);
+            }else if(target.classList.contains('Tab')){
                 textarea.value += "    ";
             }else if(target.classList.contains('Space')){
                 textarea.value += " ";
@@ -45,8 +49,31 @@ const writeSymbolWithVirtualKeyboard = () => {
 const writeSymbolWithKeyboard = () => {
     let textarea = document.querySelector("textarea");
     document.addEventListener('keydown', function(event){
-        textarea.value += event.key;
+        let keyKeyboard = event.key;
+        let keyVirtualKeyboard = document.querySelectorAll(".key");
+        // textarea.value += event.key;
         addKeyboardBacklight();
+        if(keyKeyboard == 'Control' || keyKeyboard == 'Meta' || keyKeyboard == 'Alt' || keyKeyboard == 'Shift' || keyKeyboard == 'Enter'){
+                
+        }else if(keyKeyboard == 'Backspace'){
+            textarea.value = textarea.value.substr(0, textarea.value.length - 1);
+        }else if(keyKeyboard == 'Tab'){
+            textarea.value += "    ";
+        }else if(keyKeyboard == 'Space'){
+            textarea.value += " ";
+        }else if(keyKeyboard == "CapsLock"){
+            keyVirtualKeyboard.forEach((e,i) => {
+                if(e.classList.contains('CapsLock-active')){
+                    e.classList.remove('CapsLock-active');
+                    keyVirtualKeyboard[i].innerText = keyVirtualKeyboard[i].innerText.toLowerCase();
+                }else if(e.classList.contains('CapsLock')){
+                    e.classList.add('CapsLock-active');
+                    keyVirtualKeyboard[i].innerText = keyVirtualKeyboard[i].innerText.toUpperCase();
+                }
+            })
+        }else{
+            textarea.value += event.key;
+        }
     });
     document.addEventListener('keyup', function(event){
         removeKeyboardBacklight();
