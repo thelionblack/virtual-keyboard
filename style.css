@@ -1,0 +1,61 @@
+textarea {
+    width: 510px;
+    height: 200px;
+}
+
+.button {
+    width: 88px;
+    height: 30px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.row {
+    display: flex;
+}
+
+
+    .key {
+        width: 30px;
+        height: 30px;
+        border: 1px solid black;
+        margin: 1px;
+        cursor: pointer;
+    }
+
+    .Tab {
+        width: 70px;
+    }
+
+    .Backspace {
+        width: 96px;
+    }
+
+    .CapsLock {
+        width: 89px;
+    }
+
+    .CapsLock-active {
+        background-color: green;
+    }
+
+    .Shift {
+        width: 72px;
+    }
+
+    .Ctrl, .Meta, .Alt {
+        width: 53.5px;
+    }
+
+    .Space {
+        width: 227px;
+        text-align: center;
+    }
+
+    .Enter {
+        width: 53.5px;
+    }
+
+    .active {
+        opacity: 0.5;
+    }
