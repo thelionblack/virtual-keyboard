@@ -4,58 +4,54 @@ textarea {
 }
 
 .button {
-    width: 88px;
-    height: 35px;
-    border: 1px solid black;
+    display: inline-flex;
     cursor: pointer;
+    border: 1px solid black;
+    box-shadow: inset -11px 3px 29px 2px rgba(26, 23, 23, 0.7);
 }
 
-.row {
+.keyboard {
+    padding: 10px;
+    width: 500px;
+    background-color: #d8dde4;
+  }
+  
+  .row {
     display: flex;
-}
-
-
-    .key {
-        width: 30px;
-        height: 30px;
-        border: 1px solid black;
-        margin: 1px;
-        cursor: pointer;
-    }
-
-    .Tab {
-        width: 70px;
-    }
-
-    .Backspace {
-        width: 96px;
-    }
-
-    .CapsLock {
-        width: 89px;
-    }
-
-    .CapsLock-active {
-        background-color: green;
-    }
-
-    .Shift {
-        width: 72px;
-    }
-
-    .Ctrl, .Meta, .Alt {
-        width: 53.5px;
-    }
-
-    .Space {
-        width: 227px;
-        text-align: center;
-    }
-
-    .Enter {
-        width: 53.5px;
-    }
-
+    flex-wrap: wrap;
+  }
+  .row:not(:last-child) {
+    margin-bottom: 5px;
+  }
+  
+  .key {
+    height: 30px;
+    border: 1px solid black;
+    flex-grow: 1;
+    cursor: pointer;
+    box-shadow: inset -11px 3px 29px 2px rgba(26, 23, 23, 0.7);
+  }
+  .key:not(:last-child) {
+    margin-right: 5px;
+  }
+  
+  .Space {
+    width: 150px;
+    text-align: center;
+  }
+  
+  .CapsLock-active {
+    background: rgba(25, 78, 0, 0.7);
+  }
+  
+  .shift-on {
+    background: rgba(25, 78, 0, 0.7);
+  }
+  
+  .key > .sub:last-child {
+    font-size: 10px;
+  }
     .active {
+        box-shadow: none;
         opacity: 0.5;
     }
